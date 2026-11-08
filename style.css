@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.welcome-screen {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 30px 20px;
+
+    background:
+        radial-gradient(ellipse at 15% 15%,
+            #312e81 0%, transparent 40%),
+        radial-gradient(ellipse at 85% 85%,
+            #581c87 0%, transparent 40%),
+        linear-gradient(135deg,
+            #020617, #0f172a, #171044);
+}
+
+.welcome-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    width: 100%;
+    animation: appear 1.5s ease;
+}
+
+/* Background glow */
+
+.welcome-glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.35;
+    animation: float 6s infinite alternate ease-in-out;
+}
+
+.glow-one {
+    background: #2563eb;
+    top: 5%;
+    left: 5%;
+}
+
+.glow-two {
+    background: #c026d3;
+    bottom: 5%;
+    right: 5%;
+}
+
+/* Profile circle */
+
+.profile-circle {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    border: 2px solid #a78bfa;
+
+    background: linear-gradient(
+        135deg, #2563eb, #9333ea, #db2777
+    );
+
+    color: white;
+    font-size: 35px;
+    font-weight: 800;
+
+    box-shadow: 0 0 35px #8b5cf680;
+}
+
+.welcome-label {
+    color: #67e8f9;
+    font-size: 13px;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+}
+
+.welcome-content h1 {
+    font-size: clamp(38px, 7vw, 70px);
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    background: linear-gradient(
+        90deg, #60a5fa, #c084fc, #f9a8d4
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.welcome-content h3 {
+    color: #c4b5fd;
+    font-size: 19px;
+    margin-top: 15px;
+}
+
+.intro {
+    color: #cbd5e1;
+    max-width: 600px;
+    margin: 20px auto 35px;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* One heading at a time */
+
+.heading-container {
+    position: relative;
+    height: 75px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-heading {
+    position: absolute;
+    opacity: 0;
+    transform: translateY(20px);
+
+    font-size: clamp(23px, 4vw, 34px);
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    background: linear-gradient(
+        90deg, #38bdf8, #a78bfa, #f0abfc
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    transition: all 1s ease;
+}
+
+.side-heading.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Let's Start button */
+
+.start-button {
+    display: none;
+    margin: 30px auto 0;
+    padding: 16px 42px;
+
+    border: 1px solid #c4b5fd;
+    border-radius: 50px;
+
+    background: linear-gradient(
+        100deg, #2563eb, #7c3aed, #c026d3
+    );
+
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+    box-shadow: 0 0 25px #9333ea80;
+
+    transition: all 0.4s ease;
+}
+
+.start-button:hover {
+    transform: translateY(-5px) scale(1.06);
+    box-shadow: 0 0 40px #c084fc;
+}
+
+.start-button span {
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.footer-text {
+    color: #64748b;
+    font-size: 12px;
+    margin-top: 50px;
+}
+
+/* Animations */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(40px, -30px);
+    }
+}
+
+/* Mobile */
+
+@media(max-width: 600px) {
+    .welcome-content h3 {
+        font-size: 16px;
+    }
+
+    .intro {
+        font-size: 14px;
+    }
+
+    .welcome-label {
+        letter-spacing: 3px;
+    }
+}
